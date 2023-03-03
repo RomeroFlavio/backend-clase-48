@@ -1,0 +1,62 @@
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>CheckOut</title>
+      
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/materia/bootstrap.min.css"
+        />
+      
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+          crossorigin="anonymous"
+        />
+        <style>
+        body {
+          background-image: url('fondo/fondo.jpg');
+          background-image: no-repeat;
+          background-size: cover;
+        }
+      </style>
+      </head>
+
+  <body>
+    <div class="row text-center align-content-center justify-content-center pb-5 mt-5">
+        <div class="col-lg-3 justify-content-center text-center">
+            <form action="/main" method="get" >
+                <button  type="submit " style="background-color:#66f143; color:black ;" class="card-body btn-block  btn">
+                    <h6 class="p-3">Seguir Comprando</h6>  
+                </button>
+            </form>
+        </div>
+        </div>
+    <div id="container" class="container">
+      <section style="background-color: black; color: white;" class=" card rounded-lg">
+        <div class="card-body p-5 text-center">
+            <div>
+              <h2>Gracias por su compra: </h2>
+              {{#each args}}
+                <p>{{this}}</p>
+              {{/each}}
+              <p>Numero de Orden: {{numeroOrden}}</p>
+              <p>Fecha: {{time}}</p>
+              <p>Email: {{email}}</p>
+              <p>Productos: {{dato}}</p>
+            </div>
+          </div>
+      </section>
+
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    >
+    </script>
+  </body>
+</html>
