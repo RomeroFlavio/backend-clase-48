@@ -4,7 +4,7 @@ Proyecto final
 # Instalación
 
 ```sh
-git https://github.com/HernanFranco96/ecommerce.git
+git https://github.com/RomeroFlavio/backend-clase-48.git
 cd ecommerce
 npm i
 npm run dev
@@ -36,8 +36,8 @@ npm run dev
     "winston": "^3.8.0"
     
 ## Sitio
-- https://ecommerce-production-f62b.up.railway.app/login
+- https://backend-clase-48-production.up.railway.app/login
 
 ## License
 
-**Hernán Franco**
+**Romero Flavio**

@@ -11,8 +11,8 @@ function sendWpp(dat1, dat2, prod) {
   try {
     client.messages.create({
       body: `Compra de: ${dat1}, mail: ${dat2}, productos: ${prod}`,
-      from: 'whatsapp:+14155238886',       
-      to: 'whatsapp:+541157610975'
+      from: 'whatsapp:+1561157642',       
+      to: 'whatsapp:+541561157642'
     })
   } catch (error) {
     logger.error(error)
@@ -23,7 +23,7 @@ function wppComprador(num){
     try {
         client.messages.create({
         body: `Su pedido ha sido recibido, se encuentra en proceso`,
-        from: 'whatsapp:+14155238886',       
+        from: 'whatsapp:+1561157642',       
         to: `whatsapp:+${num}`
         })
     } catch (error) {

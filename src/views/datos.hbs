@@ -12,7 +12,7 @@
   <div class="row text-center align-content-center justify-content-center pb-5 mt-5">
     <div class="col-lg-3 justify-content-center text-center">
       <form action="/api/carrito/viewCart" method="get">
-        <button type="submit " style="background-color:#48e029; color:black ;" class="card-body btn-block  btn">
+        <button type="submit " style="background-color:#4394f1; color:black ;" class="card-body btn-block  btn">
           <h6 class="">ver carrito</h6>
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
             class="bi bi-cart-check-fill" viewBox="0 0 16 16">
@@ -26,10 +26,10 @@
   </form>
   <div class="col-md-10 mx-auto">
     <div class="card text-center">
-      <div class="card-header bg-info text-white">
+      <div class="card-header bg-white text-black">
         <h3>Lista de Productos</h3>
       </div>
-      <div class="card-body bg-dark">
+      <div class="card-body bg-white">
         <div class="row">
 
           {{#if prod}}
@@ -54,7 +54,7 @@
 
           {{/each}}
           {{else}}
-          <h2>No hay productos</h2>
+          <h2 class="text-center">No hay productos</h2>
           {{/if}}
 
         </div>

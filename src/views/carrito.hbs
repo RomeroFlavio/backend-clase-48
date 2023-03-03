@@ -1,87 +1,89 @@
 <head>
-  <meta charset="UTF-8" />
-  <title>App de Productos</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/materia/bootstrap.min.css" />
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
-
-  <style>
-    body {
-      background-image: url('fondo/fondo.jpg');
-      background-image: no-repeat;
-      background-size: cover;
-    }
-  </style>
-</head>
+    <meta charset="UTF-8" />
+    <title>App de Productos</title>
+  
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/materia/bootstrap.min.css"
+    />
+  
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+  </head>
 
 <body>
-  <div class="row text-center align-content-center justify-content-center pb-5 mt-5">
-    <div class="col-lg-3 justify-content-center text-center">
-      <form action="/main" method="get">
-        <button type="submit " style="background-color:#66f143; color:black ;" class="card-body btn-block  btn">
-          <h6 class="p-3">Seguir Comprando</h6>
-        </button>
-      </form>
-    </div>
-  </div>
+    <div class="row text-center align-content-center justify-content-center pb-5 mt-5">
+        <div class="col-lg-3 justify-content-center text-center">
+            <form action="/main" method="get" >
+                <button  type="submit " style="background-color:#4394f1; color:black ;" class="card-body btn-block  btn">
+                    <h6 class="p-3">Seguir Comprando</h6>  
+                </button>
+            </form>
+        </div>
+        </div>
+              
+    <div class="col-md-10 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Lista de Productos En Carrito</h3>
+        </div>
+        <div class="card-body bg-dark">
+          <div class="table-responsive">
+            <table class="table table-dark">
+              <tr style="color: #4394f1;">
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Foto</th>
+                <th>Cantidad</th>
+                <th></th>
+              </tr>
+              {{#if prod}}
+                {{#each prod}}
+                  <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.price}}</td>
+                    <td><IMG SRC="{{this.thumnail}}"ALIGN=MIDDLE WIDTH=200 HEIGHT=200 ALT="AQUI VA UNA IMAGEN"></td>
+                    <td>{{this.cantidad}}</td>
+                    <td>
+                      <form
+                      class='form'
+                      action='/api/carrito/eliminarProducto'
+                      method='post'
+                      role='form'
+                      autocomplete='off'
+                      >
+                      <div class='form-group'><input id='id' name='id' class='form-control' type='hidden' value="{{this._id}}" required /> </div>
+                      <div class='form-group'>
+                        <button type='submit' value='' class="btn btn btn-block" style="background-color:#ed5757; color:black ;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                        </button>
+                      </div>
+                      </form>
 
-  <div class="col-md-10 mx-auto">
-    <div class="card text-center">
-      <div class="card-header">
-        <h3>Lista de Productos En Carrito</h3>
-      </div>
-      <div class="card-body bg-dark">
-        <div class="table-responsive">
-          <table class="table table-dark">
-            <tr style="color: #66f143;">
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Foto</th>
-              <th>Cantidad</th>
-              <th></th>
-            </tr>
-            {{#if prod}}
-            {{#each prod}}
-            <tr>
-              <td>{{this.name}}</td>
-              <td>{{this.description}}</td>
-              <td>{{this.price}}</td>
-              <td><IMG SRC="{{this.thumnail}}" ALIGN=MIDDLE WIDTH=200 HEIGHT=200 ALT="AQUI VA UNA IMAGEN"></td>
-              <td>{{this.cantidad}}</td>
-              <td>
-                <form class='form' action='/api/carrito/eliminarProducto' method='post' role='form' autocomplete='off'>
-                  <div class='form-group'><input id='id' name='id' class='form-control' type='hidden'
-                      value="{{this._id}}" required /> </div>
-                  <div class='form-group'>
-                    <button type='submit' value='' class="btn btn btn-block"
-                      style="background-color:#ed5757; color:black ;">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                        class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path
-                          d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                      </svg>
-                    </button>
-                  </div>
-                </form>
-
-              </td>
-            </tr>
-            {{/each}}
-            {{else}}
-            <h2>No hay productos</h2>
-            {{/if}}
-          </table>
+                    </td>
+                  </tr>
+                {{/each}}
+              {{else}}
+                <h2>No hay productos</h2>
+              {{/if}}
+            </table>
+          </div>
         </div>
       </div>
+      <form action="/api/carrito/compra" method="get">  
+                <button class="btn  btn-block" type="submit" style="background-color:#4394f1; color:black ;">
+                  Comprar
+                </button>
+              </div>
+            </form>
     </div>
-    <form action="/api/carrito/compra" method="get">
-      <button class="btn  btn-block" type="submit" style="background-color:#66f143; color:black ;">
-        Comprar
-      </button>
-  </div>
-  </form>
-  </div>
-</body>
+  </body>
+  
